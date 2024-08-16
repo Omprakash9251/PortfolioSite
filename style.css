@@ -71,6 +71,7 @@ ul li {
     padding: 10px 20px;
     justify-self: center;
   }
+
   .burger-menu {
     display: block;
   }
@@ -87,6 +88,10 @@ ul li {
   .meganav .link a {
     padding: 10px;
   }
+}
+
+#drawer-placeholder {
+  position: relative;
 }
 
 .drawer {
@@ -145,6 +150,22 @@ ul li {
   top: 35px;
   right: 13px;
   font-size: small;
+}
+
+.call-us {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  padding: 15px 0px;
+  line-height: 20px;
+  border-top: 1px solid;
+}
+
+.call-us a {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
 }
 
 /* Blur Overlay */
@@ -282,11 +303,16 @@ ul li {
 .image-container {
   flex: 1;
   text-align: right;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: auto;
 }
 
 .image-container img {
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
 .show-btn {
@@ -306,10 +332,24 @@ ul li {
     flex-direction: column;
     text-align: center;
   }
-  .text-container {
-    margin-bottom: 20px;
+
+  .image-container img {
+    width: 100%;
   }
-  .image-container {
-    text-align: center;
-  }
+}
+
+/* .categoriesByDesign {
+  width: 100%;
+  background-color: #444;
+  border-bottom: 1px solid;
+} */
+
+.list-categoris {
+  width: 100%;
+  background-color: #444;
+  border-bottom: 1px solid;
+}
+
+.list-categoris li {
+  list-style: none;
 }

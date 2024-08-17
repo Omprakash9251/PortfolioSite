@@ -8,7 +8,7 @@ body {
 }
 
 .navContainer {
-  background-image: url("/images/megamenu2.jpg");
+  background-image: url("/images/mainmenuimage2.jpg");
   min-height: 100vh;
   width: 100%;
   background-position: center;
@@ -16,10 +16,6 @@ body {
   background-size: cover;
   position: relative;
   z-index: 1;
-}
-
-.container {
-  opacity: 0.7;
 }
 
 .topnav {
@@ -32,8 +28,17 @@ body {
 }
 
 .header-wrapper {
-  padding: 0 70px;
-  background-color: aliceblue;
+  padding: 10px 70px;
+  background-color: #fff;
+}
+
+#logo {
+  margin: 0;
+  width: 100px;
+}
+
+.brandLogo {
+  width: 100%;
 }
 
 .burger-menu {
@@ -46,6 +51,7 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .meganav {
@@ -100,10 +106,9 @@ ul li {
   left: -100%;
   width: 85%;
   height: 100%;
-  background-color: white;
+  background-color: #fff;
   color: black;
   transition: left 0.5s ease-in-out;
-  padding-top: 50px;
   z-index: 1000;
 }
 
@@ -201,7 +206,7 @@ ul li {
   position: relative;
   max-width: 100%;
   overflow: hidden;
-  background: white;
+  background: #fff;
 }
 
 .swiper-wrapper {
@@ -230,8 +235,9 @@ ul li {
   top: 50%;
   transform: translateY(-50%);
   border: none;
-  font-size: 18px;
-  padding: 15px 20px;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 25px 20px;
   cursor: pointer;
   z-index: 10;
   transition: opacity 0.3s ease-in-out;
@@ -338,18 +344,166 @@ ul li {
   }
 }
 
-/* .categoriesByDesign {
-  width: 100%;
-  background-color: #444;
-  border-bottom: 1px solid;
-} */
+/* Contact Form */
 
-.list-categoris {
-  width: 100%;
-  background-color: #444;
-  border-bottom: 1px solid;
+.contact-slogan-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+  background-color: #f9f9f9;
+  align-items: center;
 }
 
-.list-categoris li {
+.contact-form-container,
+.marketing-slogans {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.contact-form-container {
+  padding: 20px;
+  border-radius: 8px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+
+.contact-form h2 {
+  margin-bottom: 20px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  border-bottom: 0.5px solid;
+}
+
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+  outline: none;
+}
+.contact-form .form-group textarea {
+  resize: vertical;
+}
+.contact-form .submit-button {
+  background-color: black;
+  color: #fff;
+  border: none;
+  padding: 10px 50px;
+  cursor: pointer;
+}
+
+.contact-form .submit-button:hover {
+  background-color: #0056b3;
+}
+
+.marketing-slogans h2 {
+  margin-bottom: 20px;
+}
+
+.marketing-slogans ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.marketing-slogans ul li {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .contact-slogan-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-form-container,
+  .marketing-slogans {
+    width: 100%;
+  }
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.footer-logo-img {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+.footer-social {
+  margin-bottom: 20px;
+}
+
+.footer-social p {
+  margin: 0 0 10px;
+}
+
+.footer-social ul {
   list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-social ul li {
+  margin: 0 10px;
+}
+
+.footer-social .social-icon {
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.footer-social .social-icon:hover {
+  color: #ddd;
+}
+
+.footer-contact {
+  margin-bottom: 20px;
+}
+
+.footer-contact p {
+  margin: 5px 0;
+}
+
+.footer-contact a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  font-size: 14px;
 }

@@ -38,18 +38,104 @@
         .hover-item:hover::before {
             width: 100%;
         }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 10px;
+            margin: 20px auto;
+            padding: 10px;
+            max-width: 1200px;
+            max-height: 300px;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        @media (max-width:768px) {
+            .list-categoris {
+                margin: 0px 10px;
+            }
+        }
+
+        .backButton {
+            width: 100%;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+            margin: 0px;
+            padding: 10px 0;
+        }
+
+        .backButton a {
+            color: black;
+            font-size: 20px;
+            text-decoration: none;
+            padding-left: 20px;
+        }
     </style>
+    <div class="backButton"><a href="index.html">Back</a></div>
     <div class="moreStylesContainer">
         <div class="ourStyles">
-            <p>Our Designes</p>
+            <p>Discover Styles You'll Love</p>
         </div>
         <div class="categoriesByDesigns">
             <ul class="list-categoris">
-                <li class="hover-item">All</li>
-                <li class="hover-item">Rooms</li>
-                <li class="hover-item">Sofas</li>
-                <li class="hover-item">Chairs</li>
+                <li class="hover-item" data-category="all">All</li>
+                <li class="hover-item" data-category="rooms">Rooms</li>
+                <li class="hover-item" data-category="sofas">Sofas</li>
+                <li class="hover-item" data-category="chairs">Chairs</li>
             </ul>
         </div>
+        <div id="imageGallery" class="image-gallery"></div>
     </div>
+    <script>
+        const API_KEY = '4KOnp3cpA0diVuo6IMKCXuQg8nkRSM0H8KroKFl0drafMFOzFZKDkGfj';
+        const BASE_URL = 'https://api.pexels.com/v1/search?query=';
+
+        const categories = {
+            all: 'furniture',
+            rooms: 'rooms',
+            sofas: 'sofas',
+            chairs: 'chairs'
+        };
+
+        async function fetchImages(query) {
+            try {
+                const response = await fetch(`${BASE_URL}${query}&per_page=20`, {
+                    headers: {
+                        'Authorization': API_KEY
+                    }
+                });
+                const data = await response.json();
+                console.log(data)
+                displayImages(data.photos);
+            } catch (error) {
+                console.error('Error fetching images:', error);
+            }
+        }
+
+        function displayImages(photos) {
+            const gallery = document.getElementById('imageGallery');
+            gallery.innerHTML = photos.map(photo =>
+                `<img src="${photo.src.large}" alt="${photo.alt}" loading="lazy" />`
+            ).join('');
+        }
+
+        function handleCategoryClick(event) {
+            const category = event.target.getAttribute('data-category');
+            const query = categories[category] || 'furniture';
+            fetchImages(query);
+        }
+
+        document.querySelectorAll('.hover-item').forEach(item =>
+            item.addEventListener('click', handleCategoryClick)
+        );
+
+        // Load all images by default
+        fetchImages('furniture');
+    </script>
+
 </section>

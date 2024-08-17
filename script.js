@@ -26,7 +26,7 @@ function initEventListeners() {
   const contentToBlur = document.getElementById("contentToBlur");
 
   window.addEventListener("scroll", function () {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    let scrollTop = window.scrollY || document.documentElement.scrollTop;
     if (scrollTop > lastScrollTop || drawer.classList.contains("open")) {
       navbar.classList.add("hide-navbar");
     } else {
